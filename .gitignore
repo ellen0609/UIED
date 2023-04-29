@@ -1,2 +1,3 @@
 *.pyc
-./data/output/
+/data/ellen_output/
+/data/ellen_input/
