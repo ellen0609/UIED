@@ -32,7 +32,7 @@ def save_elements(output_file, elements, img_shape):
         c = ele.wrap_info()
         # c['id'] = i
         components['compos'].append(c)
-    json.dump(components, open(output_file, 'w'), indent=4)
+    json.dump(components, open(output_file, 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
     return components
 
 
@@ -190,8 +190,8 @@ def compos_clip_and_fill(clip_root, org, compos):
 
 
 def merge(img_path, compo_path, text_path, merge_root=None, is_paragraph=False, is_remove_bar=True, show=False, wait_key=0):
-    compo_json = json.load(open(compo_path, 'r'))
-    text_json = json.load(open(text_path, 'r'))
+    compo_json = json.load(open(compo_path, 'r', encoding='utf-8'))
+    text_json = json.load(open(text_path, 'r', encoding='utf-8'))
 
     # load text and non-text compo
     ele_id = 0

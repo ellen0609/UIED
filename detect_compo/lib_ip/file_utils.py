@@ -28,7 +28,7 @@ def save_corners(file_path, corners, compo_name, clear=True):
 def save_corners_json(file_path, compos):
     img_shape = compos[0].image_shape
     output = {'img_shape': img_shape, 'compos': []}
-    f_out = open(file_path, 'w')
+    f_out = open(file_path, 'w', encoding='utf-8')
 
     for compo in compos:
         c = {'id': compo.id, 'class': compo.category}
@@ -37,7 +37,7 @@ def save_corners_json(file_path, compos):
         c['height'] = compo.height
         output['compos'].append(c)
 
-    json.dump(output, f_out, indent=4)
+    json.dump(output, f_out, ensure_ascii=False, indent=4)
 
 
 def save_clipping(org, output_root, corners, compo_classes, compo_index):
