@@ -51,14 +51,17 @@ if __name__ == '__main__':
                   'merge-contained-ele':True, 'merge-line-to-paragraph':False, 'remove-bar':True}
 
     # set input image path
-    input_path_img = 'data/input/497.jpg'
-    output_root = 'data/output'
+    #input_path_img = 'data/input/497.jpg'
+    #output_root = 'data/output'
 
-    resized_height = resize_height_by_longest_edge(input_path_img, resize_length=800)
+    input_path_img = 'data/ellen_input/screenshot.jpg'
+    output_root = 'data/ellen_output'
+
+    resized_height = 1080 # resize_height_by_longest_edge(input_path_img, resize_length=1080)
     color_tips()
 
     is_ip = True
-    is_clf = False
+    is_clf = True
     is_ocr = True
     is_merge = True
 
@@ -71,7 +74,7 @@ if __name__ == '__main__':
         import detect_compo.ip_region_proposal as ip
         os.makedirs(pjoin(output_root, 'ip'), exist_ok=True)
         # switch of the classification func
-        classifier = None
+        classifier = True
         if is_clf:
             classifier = {}
             from cnn.CNN import CNN

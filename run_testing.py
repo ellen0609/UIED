@@ -39,11 +39,14 @@ if __name__ == '__main__':
                   'max-word-inline-gap':10, 'max-line-gap':4, 'remove-top-bar':True}
 
     # set input image path
-    input_path_img = 'data/input/4.jpg'
-    output_root = 'data/output'
+    # input_path_img = 'data/input/4.jpg'
+    # output_root = 'data/output'
 
-    resized_height = resize_height_by_longest_edge(input_path_img)
-    is_clf = False
+    input_path_img = 'data/ellen_input/screenshot.jpg'
+    output_root = 'data/ellen_output'
+
+    resized_height = 1080 #resize_height_by_longest_edge(input_path_img)
+    is_clf = True
     is_ocr = False
     if is_ocr:
         import detect_text.text_detection as text
@@ -66,7 +69,7 @@ if __name__ == '__main__':
             import detect_compo.ip_region_proposal as ip
             os.makedirs(pjoin(output_root, 'ip'), exist_ok=True)
             # switch of the classification func
-            classifier = None
+            classifier = True
             if is_clf:
                 classifier = {}
                 from cnn.CNN import CNN

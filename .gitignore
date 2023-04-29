@@ -1,3 +1,4 @@
 *.pyc
 /data/ellen_output/
 /data/ellen_input/
+/model/
